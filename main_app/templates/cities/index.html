@@ -2,15 +2,19 @@
 {% block content %}
 <h1>List of the Cities</h1>
 {%for city in cities%}
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        
-      <h4>{{ city.name }}</h4>
-      <p class="card-text">Country: {{ city.country }}</p>
-      <p>Rank: {{ city.rank}}</p>
+<a href="/cities/{{city.id}}">
+  <div class="card" style="width: 18rem;">
+  
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+  
+          <h4>{{ city.name }}</h4>
+          <p class="card-text">Country: {{ city.country }}</p>
+          <p>Rank: {{ city.rank}}</p>
+        </div>
+  
     </div>
-  </div>
+</a>
   {%endfor %}
 
   {% endblock %}

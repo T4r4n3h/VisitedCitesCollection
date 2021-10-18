@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>give me something to</h1>
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{% get_static_prefix %}/images/{{city.img}} " class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{city.name}}</h5>
+          <h6>{{city.description}}</h6>
+          <h6>{{city.rank}}</h6>
+          <p class="card-text"> I dont know what I want to add here yet but im sure it will come up</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
