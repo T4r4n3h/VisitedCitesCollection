@@ -3,7 +3,7 @@
 
 body{
     background-color: #E0C3FC;
-    /* background-image: linear-gradient(160deg, #E0C3FC 2%, #ffffff 100%); */
+    background-image: linear-gradient(160deg, #E0C3FC 2%, #ffffff 100%);
 }
 
 .container{
@@ -13,4 +13,7 @@ body{
     background-image: linear-gradient(315deg, #FAACA8 0%, #DDD6F3 100%);
 
     
+}
+a{
+    text-decoration: none;
 }

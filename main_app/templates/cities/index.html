@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
+
+{% load static %}
 {% block content %}
 <h1>List of the Cities</h1>
-{%for city in cities%}
-<a href="/cities/{{city.id}}">
-  <div class="card" style="width: 18rem;">
-  
-        <img src="..." class="card-img-top" alt="...">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {%for city in cities%}
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% get_static_prefix %}{{city.img}} "class="card-img-top" alt="...">
+
+      <a href="/cities/{{city.id}}">
         <div class="card-body">
-  
-          <h4>{{ city.name }}</h4>
-          <p class="card-text">Country: {{ city.country }}</p>
-          <p>Rank: {{ city.rank}}</p>
+          <h5 class="card-title">{{city.name}}</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
-  
+      </a>
+      <a href="/cities/{{city.id}}/delete">Delete</a>
+      <a href="/cities/{{city.id}}/edit">Edit</a>
     </div>
-</a>
+    
+  </div>
   {%endfor %}
 
+</div>
   {% endblock %}

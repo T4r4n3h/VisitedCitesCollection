@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>lets edit this city</h1>
+<div class="card-body" >
+    <form class ="row g-2" action="/cities/{{city.id}}/update" method="POST">
+        {% csrf_token %}
+    
+        <label for="city_name">Enter the name</label>
+        <input name="name" type="text" value="{{city.name}}">
+    
+        <label for="country">Enter the country</label>
+        <input name="country" type="text" value="{{city.country}}">
+    
+        <label for="image">please put in the relative path</label>
+        <input name="img" type="text" value="{{city.img}}">
+    
+        <label for="description">Enter the description</label>
+        <input name="description" type="text" value="{{city.description}}">
+    
+        <button>Submit Changes</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
