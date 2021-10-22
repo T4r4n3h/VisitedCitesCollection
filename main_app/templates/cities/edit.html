@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <h1>lets edit this city</h1>
 <div class="card-body" >
+    <img src="{% get_static_prefix %}{{city.img}} " alt="">
     <form class ="row g-2" action="/cities/{{city.id}}/update" method="POST">
         {% csrf_token %}
     

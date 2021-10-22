@@ -3,7 +3,7 @@
 
 {% block content %}
 <h1>give me something to</h1>
-
+<!-- I can take out this Div and replace it with the one after i am looking to change the display still -->
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
@@ -19,6 +19,46 @@
         </div>
       </div>
     </div>
+</div>
+This is Where i want the actual Feature City
+<div class="card mb-3">
+  <img src="{% get_static_prefix %}{{city.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{city.name}}</h5>
+    <h6>{{city.description}}</h6>
+    <h6>{{city.rank}}</h6>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
+</div>
+----------------------------------------------------------------
+this is whhere i want to display a form to add POI
+<div class="mb-3">
+  <form action="/cities/{{city.id}}/add-place" method="POST">
+  {% csrf_token %}
+  {{ place_form.as_p }}
+  <button type="submit" class="btn btn-secondary btn-lg">Add A Place</button>
+  </form>
+</div>
+
+------------------------------------------------------------------------------------
+This is to desplay poi
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for plc in city.place_set.all %}
+  
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% get_static_prefix %}{{plc.img}} " class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{plc.name}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}

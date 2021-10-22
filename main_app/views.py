@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
 
 # Create your views here.
-from .models import City
+from .models import City, Place
+from .forms import PlaceForm
 
 #Define the home views 
 # def home(request):
@@ -22,9 +23,15 @@ def cities_index(request):
 
 def city_detail(request, city_id):
     city = City.objects.get(id=city_id)
+    lst_of_places = city.place_set.all()
+    print('this is the list of places:', lst_of_places)
     print('this is the city: ', city)
+
+    place_form = PlaceForm()
+
     return render(request, 'cities/detail.html',{
         'city': city,
+        'place_form': place_form
     })
 
 def city_delete(request, city_id):
@@ -53,3 +60,10 @@ def city_update(request, city_id):
    
     up_city.save()
     return redirect('/cities/')
+
+def add_place(request, city_id):
+    Place.objects.create(
+      name=request.POST['name'],
+      description=request.POST['description']  
+    )
+    return redirect(f'/cities/{city_id}')
