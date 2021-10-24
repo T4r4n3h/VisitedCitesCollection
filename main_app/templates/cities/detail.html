@@ -20,7 +20,7 @@
       </div>
     </div>
 </div>
-This is Where i want the actual Feature City
+<!-- This is Where i want the actual Feature City
 <div class="card mb-3">
   <img src="{% get_static_prefix %}{{city.img}}" class="card-img-top" alt="...">
   <div class="card-body">
@@ -30,7 +30,9 @@ This is Where i want the actual Feature City
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
-</div>
+</div> -->
+
+
 ----------------------------------------------------------------
 this is whhere i want to display a form to add POI
 <div class="mb-3">
@@ -60,5 +62,32 @@ This is to desplay poi
   </div>
   {% endfor %}
 </div>
+
+<h2>Flights to {{city.name}}</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-sm-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Airline: </th>
+            <th scope="col">Origin: </th>            
+          </tr>
+        </thead>
+        <tbody>
+          {%for flight in city.flights.all %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{flight.airline}}</td>
+            <td>{{flight.origin}}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+   
+  </div>
+</div>
+
 
 {% endblock %}

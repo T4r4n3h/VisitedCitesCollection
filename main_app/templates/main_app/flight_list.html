@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Flight List</h1>
+
+{% for flight in flight_list %}
+  <a href="{% url 'flights_detail' flight.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ flight.airline }}</span>
+            <p>Origin: {{ flight.origin }}</p>
+        </div>
+    </div>
+  </a>
+{%endfor %}
+{% endblock %}
