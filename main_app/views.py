@@ -41,10 +41,12 @@ def about(request):
     return render(request, 'about.html')
     
 def cities_index(request):
-    cities = City.objects.all()
-    print('this is the list of cities:', cities)
+    usercities = City.objects.filter( user=request.user)
+#add a filter to select based on the FK of the user
+    
+    print('this is the list of cities:',usercities)
     return render(request, 'cities/index.html',{
-        'cities': cities,
+        'cities': usercities,
     })
 
 def city_detail(request, city_id):
