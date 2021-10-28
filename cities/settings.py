@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'cities.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.code ',
         'NAME':'cities-and-places',
     }
 }
