@@ -16,7 +16,7 @@ urlpatterns = [
     path('flights/<int:pk>/',views.FlightDetail.as_view(), name='flights_detail'),
     path('flights/create/', views.FlightCreate.as_view(), name='flight_create'),
     path('flights/<int:pk>/update', views.FlightUpdate.as_view(), name='flight_update'),
-    path('flights/<int:pk>/delete', views.FlightDetail.as_view(), name='flights_delete'),
+    path('flights/<int:pk>/delete', views.FlightDelete.as_view(), name='flights_delete'),
 
     path('accounts/signup/', views.signup, name='signup'),
 ]
